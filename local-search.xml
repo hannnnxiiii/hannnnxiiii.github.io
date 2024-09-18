@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>如何把多个项目塞进 GitHub Pages？</title>
+    <link href="/2024/09/18/Vite%E4%B9%8B%E5%A6%82%E4%BD%95%E5%B0%86%E9%9D%99%E6%80%81%E7%BD%91%E9%A1%B5%E9%83%A8%E7%BD%B2%E5%88%B0github-pages/"/>
+    <url>/2024/09/18/Vite%E4%B9%8B%E5%A6%82%E4%BD%95%E5%B0%86%E9%9D%99%E6%80%81%E7%BD%91%E9%A1%B5%E9%83%A8%E7%BD%B2%E5%88%B0github-pages/</url>
+    
+    <content type="html"><![CDATA[<p>注 1：本文假设你已经有了属于自己的 username.github.io 仓库，如果你不知道这个是什么，可以先去搜索引擎搜索了解一下。</p><p>注 2：本文假设你用的构建工具是 Vite，其他的实现方式应该相似。</p><p>把多个项目塞进 GitHub Pages，查遍了互联网的教程都没做成功，特此留档</p><ol><li><p>生成静态文件</p><p><code>npm run build</code></p></li><li><p>修改 vite.config.js</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// vite.config.js</span><br><span class="hljs-keyword">import</span> &#123; defineConfig &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vite&quot;</span><br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-title function_">defineConfig</span>(&#123;<br>  <span class="hljs-attr">base</span>: <span class="hljs-string">&quot;/your-repository/&quot;</span>, <span class="hljs-comment">// 你项目的仓库名称</span><br>&#125;)<br></code></pre></td></tr></table></figure></li><li><p>安装 gh-pages</p><ol><li><p>安装</p><p><code>npm install gh-pages --save-dev</code></p></li><li><p>修改 package.json</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;scripts&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;build&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;vite build&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;deploy&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;gh-pages -d dist&quot;</span><br>    <span class="hljs-comment">//如果你连接有多个远程仓库，上述代码会自动选择名为origin的，如果你想定制，请用下面的代码</span><br>    <span class="hljs-comment">// &quot;deploy&quot;: &quot;gh-pages -d dist -r 你的仓库地址&quot;</span><br>  <span class="hljs-punctuation">&#125;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure></li></ol></li><li><p>构建并部署</p><p>在此之前请先确定你已经和远程仓库建立好连接，接着用以下代码构建并部署</p><p><code>npm run build</code><br><code>npm run deploy</code></p></li><li><p>配置 GitHub Pages</p><ul><li><p>打开你的 GitHub 仓库页面，点击 Settings。</p></li><li><p>在左侧的导航栏中找到 Pages。</p></li><li><p>在 “Source” 下拉菜单中选择 gh-pages 分支，然后点击保存。</p></li></ul><p>GitHub 会自动将 gh-pages 分支的内容发布为静态网站。</p></li></ol><p>此时你的网站就可以访问了，地址应该为：<a href="https://your-username.github.io/your-repository/">https://your-username.github.io/your-repository/</a></p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>我是如何从0到1模仿出一个豆瓣电影的</title>
     <link href="/2024/09/11/%E5%A6%82%E4%BD%95%E4%BB%8E0%E5%88%B01%E6%A8%A1%E4%BB%BF%E5%87%BA%E4%B8%80%E4%B8%AA%E8%B1%86%E7%93%A3%E7%94%B5%E5%BD%B1/"/>
     <url>/2024/09/11/%E5%A6%82%E4%BD%95%E4%BB%8E0%E5%88%B01%E6%A8%A1%E4%BB%BF%E5%87%BA%E4%B8%80%E4%B8%AA%E8%B1%86%E7%93%A3%E7%94%B5%E5%BD%B1/</url>
